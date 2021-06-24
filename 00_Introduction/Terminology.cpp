@@ -90,7 +90,23 @@ int main()
         Widget w2(w1);      // using copy constructor
         w1 = w2;            // using copy assignment
 
-        // becarful, operator '=' also can call copy constructor!
+        // becareful, operator '=' also can call copy constructor!
         Widget w3 = w1;     // using copy constructor
+
+        // copy constructor defines "passed by value"
+        auto Foo = [](Widget w){
+            return;
+        };
+
+        cout << "pass value to function Foo" << endl;
+        Foo(w3);        // using copy constructor
+    }
+
+    // undeined behavior
+    {
+        int* p = 0;
+        cout << *p << endl;     // undefined behavior, because point to null
+        char name[] = "Darla";
+        char c = name[10];      // out range char index, causing undefined behavior
     }
 }
