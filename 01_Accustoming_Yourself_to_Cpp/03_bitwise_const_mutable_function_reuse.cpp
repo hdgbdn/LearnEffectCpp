@@ -42,6 +42,7 @@ public:
     }
     const char& operator[](size_t position) const{
         // some common operations in both const and non const
+        cout << "using const version operator[]" << endl;
         return pText[position];
     }
     char& operator[](size_t position){
@@ -74,4 +75,12 @@ int main()
     // why use non const version to call cosnt version
     // because const can be removed, but can't be added
     // if call non const version in const, the non const version may break the constness
+    const TextBlock ctxt("nihao");
+    TextBlock txt("hi");
+    //get = &txt[0];                  // a value of type "const char *" cannot be assigned to an entity of type "char *"
+    const char* cp1 = &ctxt[0];     // using const version operator[]
+    char* cp2 = &txt[0];            // using const version operator[], both const and non const version is using constversion
+    *cp2 = 'n';
+    cout << cp2;                    // ni
+    // *cc = 'n';                       // expression must be a modifiable lvalue    
 }
