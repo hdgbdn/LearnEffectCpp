@@ -19,6 +19,7 @@ private:
 class ABEntry{
 public:
     ABEntry(const string& name, int id, const PhoneNumber& phone){
+    	// below is not copy construction, just copy assignment
         theName = name;
         theID = id;
         thePhone = phone;
@@ -81,20 +82,18 @@ ExternClass& func(){
 int main()
 {
     // always initialize objects before using
-    // for build-in types, mannualy initilize:
+    // for build-in types, manually initialize:
     int x = 0;
     const char* text = "A C-style string";
 
     double d;
+	// use input stream to initialize
     cin >> d;
 
-    // for anything else, use constructor to make sure
-    // every constructor initialize every member
-    // and better in member initialization list, not in function
-    // because even not write the initialization list, compiler
-    // will automaticly call the members' default constructor,
-    // before enter the function, so in function, they will be assign again,
-    // not copy construct
+    // why recommend to use initialization list not in the function scope?
+    // because before entering function scope, members are already initialized,
+    // even not write the initialization list, compiler will automatic call the members' default constructor,
+    // the "=" in function scope is copy assignment not copy construction
     // see class ABEntry
     PhoneNumber pn = PhoneNumber();
     
@@ -113,10 +112,11 @@ int main()
 
     // in short: always use member initialization list
 
-    // about initiliazation order
-    // class is initialized in the declaration order, no matter what the order is
-    // in member initialization list
-    // and always base class the derived
+    // about initialization order
+    // class is initialized in the declaration order,
+    // no matter what the order is in member initialization list
+
+    // and always base class then the derived
 
     C c = C();
     // init A
@@ -124,11 +124,11 @@ int main()
     // init AA
     // init B
 
-    // the non-local static object init order in different compiler unit
+    // the non-local static object init order in different translation unit
 
     // if i want to use a extern object defined and init in other files
-    // it's impossible to confirm it will be create before or after the time when
-    // I use the object
+    // it's impossible to confirm it will be create before or after the time when I use the object
+
     // so the best is use singleton
 
     // the resolution is easy: use a local static object returned by a function

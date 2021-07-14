@@ -13,7 +13,7 @@ class NamedObject1
 public:
 	NamedObject1(const char* name, const T& value);
 	NamedObject1(const string& name, const T& value);
-	// NamedObject1(); // if declared any constructor, compiler will not synthesize any constructor
+	// NamedObject1(); // if declared any constructor, compiler will not synthesize default constructor
 private:
 	string nameValue;
 	T objectValue;
@@ -44,12 +44,12 @@ public:
 
 int main()
 {
-	// class Empty is not empty because compiler will declare:
+	// Empty class is not empty because compiler will declare:
 	// default constructor(if you don't declare any constructor)
 	// copy constructor
 	// copy assignment operator
 	// destructor
-	// but it only created when being called
+	// but it only been created when being called
 
 	Empty e1;		// compiler create default constructor and destructor
 	Empty e2(e1);	// compiler create copy constructor
