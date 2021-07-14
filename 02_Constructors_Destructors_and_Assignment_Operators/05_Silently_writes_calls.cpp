@@ -51,27 +51,27 @@ int main()
 	// destructor
 	// but it only been created when being called
 
-	Empty e1;		// compiler create default constructor and destructor
-	Empty e2(e1);	// compiler create copy constructor
-	e2 = e1;		// copy assignment operator
+	//Empty e1;		// compiler create default constructor and destructor
+	//Empty e2(e1);	// compiler create copy constructor
+	//e2 = e1;		// copy assignment operator
 
-	// if you declared any constructor, compiler will not synthesize any constructor
-	NamedObject1<int> no1("Smallest Prime Number", 2);
-	NamedObject1<int> no2(no1);				// synthesized copy constructor
-	// the synthesize copy constructor will call string's copy constructor, and int is a build-in type, so copy int bit-wise
+	//// if you declared any constructor, compiler will not synthesize any constructor
+	//NamedObject1<int> no1("Smallest Prime Number", 2);
+	//NamedObject1<int> no2(no1);				// synthesized copy constructor
+	//// the synthesize copy constructor will call string's copy constructor, and int is a build-in type, so copy int bit-wise
 
-	// synthesized copy constructor will be synthesized only the code will be valid and having meaning
-	// see NamedObject2, now constructed by a reference-to-non-const string, and data member nameValue is reference to string
-	
-	string newDog("Persephone");
-	string oldDog("Satch");
-	NamedObject2<int> p(newDog, 2);
-	NamedObject2<int> s(oldDog, 36);
-	// p = s;			// attempt to use deleted function, so compiler delete the copy assignment operator
-	// because c++ don't allow change reference, so the copy is meaningless.
-	// also for const member
-	// and if base class has a inaccessible copy assignment operator, then compiler will not synthesize derived class's copy assignment operator
-	B b1, b2;
+	//// synthesized copy constructor will be synthesized only the code will be valid and having meaning
+	//// see NamedObject2, now constructed by a reference-to-non-const string, and data member nameValue is reference to string
+	//
+	//string newDog("Persephone");
+	//string oldDog("Satch");
+	//NamedObject2<int> p(newDog, 2);
+	//NamedObject2<int> s(oldDog, 36);
+	//// p = s;			// attempt to use deleted function, so compiler delete the copy assignment operator
+	//// because c++ don't allow change reference, so the copy is meaningless.
+	//// also for const member
+	//// and if base class has a inaccessible copy assignment operator, then compiler will not synthesize derived class's copy assignment operator
+	//B b1, b2;
 	// b2 = b1;		// copy assignment operator is also deleted in class B
 	
 	return 0;

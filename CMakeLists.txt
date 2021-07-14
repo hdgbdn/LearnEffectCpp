@@ -3,3 +3,4 @@ project(LearnEffectCpp)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/00_Introduction)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/01_Accustoming_Yourself_to_Cpp)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/02_Constructors_Destructors_and_Assignment_Operators)
