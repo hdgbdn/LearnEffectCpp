@@ -83,6 +83,13 @@ int main()
 
         // if operator returns a non referenced char:
         // tb[0] = 'x' will be error, because try to modify a temp value
+    	
     }
+
+    // summary
+    // const tell compiler that the object is const, compiler will help you to keep the constness
+    // for example: an operator* return const, it help prevents errors like: (a*b)=c
+    // pointer: const in left side of '*' is the pointed object const, on the right side of '*' is pointer self const
+    // iterator: const vector<int>::iterator and vector<int>::const_iterator.
     return 1;
 }

@@ -137,5 +137,16 @@ int main()
     ExternClass a = func();
     ExternClass b = func();
     // a local static variable will only inited once
+
+	// Summary
+	// always init object before use
+	// for user type, better use member initialization list, than assignment in constructor function
+	// if don't use member initialization list, before entering the constructor function, compiler still use members' default constructor
+	// so in constructor function, they just assignment, cost more
+
+	// the init order of members are always the declare order, so a array members size data must before the array.
+
+	// use singleton for non-local static object between different compiler unit
+	// because we don't know weather it is inited when we use it
     return 0;
 }

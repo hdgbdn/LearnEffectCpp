@@ -18,6 +18,8 @@ public:
 		{
 			cout << "catches runtime error" << endl;
 			throw;
+			// if throw the exception, it will cause a undefined behaviour, because destructor is part of exceptional handling
+			// C++ can't handle a exception inside a exception
 		}
 		cout << "free string" << endl;
 		delete str;
@@ -39,8 +41,10 @@ public:
 		catch (const runtime_error& e)
 		{
 			cout << "catches runtime error" << endl;
-			// throw;
-			// don't throw exception, handle it
+			// don't throw exception, it's even better to stop the programe
+			cout << "free string" << endl;
+			delete str;
+			std::abort();
 		}
 		cout << "free string" << endl;
 		delete str;
