@@ -73,6 +73,13 @@ int main()
 	//// and if base class has a inaccessible copy assignment operator, then compiler will not synthesize derived class's copy assignment operator
 	//B b1, b2;
 	// b2 = b1;		// copy assignment operator is also deleted in class B
+
+	// Summary:
+	// compiler will synthesize: default constructor(if no other constructor), copy constructor, copy assignment, destructor
+	// default constructor: if you defined any constructor, compiler will not synthesize the default constructor(the empty parameter one)
+	// destructor: the synthesized destructor is non virtual, but is virtual if it's base class has a virtual destructor
+	// copy assignment: if data member have reference or const, then will not synthesize copy assignment. reference can't be copied, const can't be changed
+	// also if the base's copy assignment is inaccessibly, like deleted or private, then will not synthesize copy assignment
 	
 	return 0;
 }
