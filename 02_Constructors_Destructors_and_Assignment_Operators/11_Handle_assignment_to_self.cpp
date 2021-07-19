@@ -87,6 +87,13 @@ int main()
 		cout << or.what() << endl;
 		cout << "w1's bitmap name is " << w1.pb->name << endl;
 	}
+
+	// Summary:
+	// when self-assigning, you may change the data member of 'this', but the rhs is also 'this', so your permanently lost the data
+	// one way is identity test: check if the rhs equals this, but it don't consider the exception safe.
+	// in other words, exception safe can automatically brings self-assigning:
+	// 1: make sure when exception happens, the data remain unchanged
+	// or, use copy and swap(and a tricky version);
 	
 	return 0;
 }

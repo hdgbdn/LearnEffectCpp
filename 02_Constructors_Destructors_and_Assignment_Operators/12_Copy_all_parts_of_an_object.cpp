@@ -47,7 +47,7 @@ int main()
 	// Summary
 	// In your version's copy operations:
 	// 1: copy all the local files
-	// 2: copy base part
+	// 2: copy base part, using base::operator=
 	// if you found there is duplicate code in both copy constructor and copy assignment, don't try to call one in other
 	// just wrap the same code and put it in a private init function
 	logCall(pc1.name);

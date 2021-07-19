@@ -115,7 +115,7 @@ int main()
 	// why normal pure function don't need definition? because they are not called by the compiler automatically.
 
 	// summary:
-	// if a class is a base class, it should have a virtual destructor
+	// if a class is a base class, it should have a virtual destructor, or base pointer will just call the base's destructor
 	// a class with virtual function, must need a virtual destructor
 	// don't declare virtual functions if a class isn't a base class, virtual function costs more than a normal function
 	// don't derived a class without a virtual destructor
