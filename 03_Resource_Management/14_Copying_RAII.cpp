@@ -30,7 +30,7 @@ int main()
 
 	// and some alternate ways:
 	// 3: deep copy the managed resources
-	// 4: some times need only on RAII holds the raw resources, use unique_ptr.
+	// 4: some times need only one RAII holds the raw resources, use unique_ptr.
 
 	// if you want to keep the raw resource after the smart pointer use count decrease to 0, you can define your own deleter;
 }

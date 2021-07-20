@@ -41,7 +41,7 @@ public:
 		catch (const runtime_error& e)
 		{
 			cout << "catches runtime error" << endl;
-			// don't throw exception, it's even better to stop the programe
+			// don't throw exception, it's even better to stop the program
 			cout << "free string" << endl;
 			delete str;
 			std::abort();
@@ -57,7 +57,7 @@ class ThrowE3
 {
 public:
 	ThrowE3() : str(new string()), closed(false) {}
-	void close() { throw(runtime_error("test")); closed = true; }
+	void close() { throw(runtime_error("test")); closed = true; }	// let user to handle exception
 	~ThrowE3()
 	{
 		if (closed) delete str;
