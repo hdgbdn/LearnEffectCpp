@@ -113,6 +113,20 @@ int main()
 
 	// but shared_ptr has other cost like twice the size of raw pointer, a dynamic memory to store it's data member
 	// and call deleter using virtual function. it's heavy, but for decrease errors' purpose, it's good.
+
+	// Summary
+	// 1: specify type to avoid misleading multi parameters, like void(int, int, int) -> void(type1, type2, type3)
+	// and remember how to deal with non-local static?
+
+	// 2: make your class behaviour like build-in type, means consistence, also your class, same behaviour, same interface
+	
+
+	// 3: make user remember as less as possible, like return smart pointer rather than raw pointer.
+	// and use the deleter, if your have some additional operation when free the memory, rather than let user to call it.
+
+	// 4: misc: create void smart pointer: shared_ptr<A>(static_cast<A*>(0), your_deleter), then a shared_ptr with no pointer, but
+	// have a deleter, why don't new the object in this statement? rule 17: new object in a standalone statement;
+	// and cross-DLL problem
 	
 	return 0;
 }

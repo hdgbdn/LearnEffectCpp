@@ -29,4 +29,9 @@ int main()
 
 	// shared_ptr use delete not delete[], because std thinks vector and string it a better choice when managing dynamic arrays.
 
+	// Summary:
+	// RAII, use object to manage raw resource, because we can benefit from managing object, that's after leaving scope or exception
+	// compiler will automatic call destructor, and free the memory
+
+	// shared_ptr has a con: two shared_ptr pointed to each other, and be careful, shared_ptr use delete, not delete[], so don't store array
 }
