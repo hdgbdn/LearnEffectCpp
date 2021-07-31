@@ -77,9 +77,10 @@ int main()
 	}
 	 */
 	Widget w1("w1");
+	Widget w2("w2");
 	try
 	{
-		w1 = w1;
+		w1 = w2;
 	}
 	catch (const out_of_range& or)
 	{
