@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -75,9 +76,16 @@ int main()
 		WindowWithScrollBar wsb;
 		Window* pw = &wsb;
 		Window* pw2 = new Window();
+		// pw2->windowWithScrollBarFunc();		// error: no member "windowWithScrollBarFunc"
 		dynamic_cast<WindowWithScrollBar*>(pw)->windowWithScrollBarFunc();
 		dynamic_cast<WindowWithScrollBar*>(pw2)->windowWithScrollBarFunc();
 	}
-	
+
+	// two ways to avoid it
+	// first, container stores the derived pointer other than stores the base pointer
+	vector<shared_ptr<WindowWithScrollBar>> VPWSB;
+	vector<shared_ptr<Window>> VPW;
+	// second, use empty virtual function
+	// class Window{ ... virtual void windowWithScrollBarFunc(); }
 	return 0;
 }
