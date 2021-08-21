@@ -41,6 +41,14 @@ int main()
 	// and non-inline function just need re-link
 
 	// and also inline is hard for debugging because the function is not exited during runtime
-	
+
+	// summary:
+	// 1.inline replace function call with source code, trade space for speed. A proper inline can increase instruction cache hit rate
+	// 2.implement of inline should be in the header file, because the code replacement happens in compiling time(not link time), compiler must know the definition.
+	// 3.a inline template will inline all the function, so use it carefully
+	// 4.inline is just a suggestion, compiler can deny it, such as virtual function(runtime)
+	// 5.inlined function may still have a function object, when it is been get address.
+	// 6.constructor and destructor are bad candidates for inline, because the code compiler generated for constructor and destructor may be larger than you think
+	// 7.for compiling time, if a inline changed, all code referenced the inline need re-compiler.
 	return 0;
 }
