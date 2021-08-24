@@ -94,5 +94,9 @@ int main()
 	// and a small type may grow bigger
 
 	// generally, pass value for build-in type, STL iterator and function object, for everything else, use pass by reference to const
+
+	// summary:
+	// pass by value if more expensive than by reference because of constructing a new object. add const to make sure the object won't be changed.
+	// and only built-in types and some special types designed to be passed by value, otherwise, pass by const reference.
 	return 0;
 }

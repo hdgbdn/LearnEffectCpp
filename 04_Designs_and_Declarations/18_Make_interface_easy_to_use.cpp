@@ -38,6 +38,7 @@ class ExplicitMonth
 public:
 	// why return in function?
 	// because non-local static object's initialization may have order issues, user may get a uninited object;
+	// like: static Jan(ExplicitMonth(1));
 	static ExplicitMonth Jan() { return ExplicitMonth(1); }
 	static ExplicitMonth Feb() { return ExplicitMonth(2); }
 private:
@@ -118,8 +119,7 @@ int main()
 	// 1: specify type to avoid misleading multi parameters, like void(int, int, int) -> void(type1, type2, type3)
 	// and remember how to deal with non-local static?
 
-	// 2: make your class behaviour like build-in type, means consistence, also your class, same behaviour, same interface
-	
+	// 2: make your class behaviour like build-in type, means consistence, also your class, same behaviour, same interface.
 
 	// 3: make user remember as less as possible, like return smart pointer rather than raw pointer.
 	// and use the deleter, if your have some additional operation when free the memory, rather than let user to call it.
