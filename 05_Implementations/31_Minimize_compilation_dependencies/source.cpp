@@ -3,6 +3,8 @@
 #include "Person.h"
 #include "Date.h"
 #include "Address.h"
+#include "PersonInterface.h"
+
 
 int main()
 {
@@ -21,6 +23,16 @@ int main()
 	// Person.cpp is affected by change of the PersonImpl.h because it included it, but just Person.cpp needs re-compile, source.cpp just need to re-link
 	// so, as user, source.cpp don't affected by the change or PersonImpl
 	//
-	// summary: don't let users get involved in definition, only put declaration in header can avoid re-compile, 
+	// summary: don't let users get involved in definition, only put declaration in header can avoid re-compile,
+
+	std::shared_ptr<PersonInterface> p = PersonInterface::create("hi", Date(std::string("121212")), Address(std::string("China")));
+	// first build:
+	// [1/3] Building CXX object 05_Implementations\31_Minimize_compilation_dependencies\CMakeFiles\31_Minimize_compilation_dependencies.dir\RealPerson.cpp.obj
+	// [2/3] Building CXX object 05_Implementations\31_Minimize_compilation_dependencies\CMakeFiles\31_Minimize_compilation_dependencies.dir\source.cpp.obj
+	// [3/3] Linking CXX executable 05_Implementations\31_Minimize_compilation_dependencies\31_Minimize_compilation_dependencies.exe
+
+	// then change the impl in RealPerson.cpp
+	// [1/2] Building CXX object 05_Implementations\31_Minimize_compilation_dependencies\CMakeFiles\31_Minimize_compilation_dependencies.dir\RealPerson.cpp.obj
+	// [2/2] Linking CXX executable 05_Implementations\31_Minimize_compilation_dependencies\31_Minimize_compilation_dependencies.exe
 	return 0;
 }
