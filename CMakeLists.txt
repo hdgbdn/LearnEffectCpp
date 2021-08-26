@@ -7,3 +7,4 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/02_Constructors_Destructors_and_Assig
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/03_Resource_Management)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/04_Designs_and_Declarations)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/05_Implementations)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/06_Inheritance_and_OOP)
