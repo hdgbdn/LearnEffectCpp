@@ -27,6 +27,7 @@ public:
 	using Base::mf2;
 	using Base::mf3;
 	virtual void mf1() { cout << "Dervied::mf1()" << endl; }
+	virtual void mf1(double x) { cout << "Dervied::mf1(double)" << endl; }
 	void mf3() { cout << "Dervied::mf3()" << endl; }
 };
 
