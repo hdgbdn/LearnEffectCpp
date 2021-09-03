@@ -34,5 +34,9 @@ int main()
 	// then change the impl in RealPerson.cpp
 	// [1/2] Building CXX object 05_Implementations\31_Minimize_compilation_dependencies\CMakeFiles\31_Minimize_compilation_dependencies.dir\RealPerson.cpp.obj
 	// [2/2] Linking CXX executable 05_Implementations\31_Minimize_compilation_dependencies\31_Minimize_compilation_dependencies.exe
+
+	// summary:
+	// the header file provide to user, only contain pointer reference, and make implementation into a pointer, so the header file won't contain any object memory information
+	// so changes of real implementation header file won't make user's code re-compile;
 	return 0;
 }

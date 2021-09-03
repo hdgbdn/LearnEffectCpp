@@ -29,6 +29,7 @@ public:
 
 class ModelA : public AirPlane
 {
+	// the definition of pure virtual function is used here
 	void defaultFly(const AirPort& des) const override { AirPlane::defaultFly(des); }
 };
 class ModelB : public AirPlane

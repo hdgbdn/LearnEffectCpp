@@ -16,8 +16,8 @@ public:
 class Derived : public Base
 {
 public:
-	virtual void mf1()  { cout << "Dervied::mf1()" << endl; }
-	void mf3() { cout << "Dervied::mf3()" << endl; }
+	virtual void mf1()  { cout << "Derived::mf1()" << endl; }
+	void mf3() { cout << "Derived::mf3()" << endl; }
 };
 
 class NewDerived : public Base
@@ -26,9 +26,9 @@ public:
 	using Base::mf1;
 	using Base::mf2;
 	using Base::mf3;
-	virtual void mf1() { cout << "Dervied::mf1()" << endl; }
-	virtual void mf1(double x) { cout << "Dervied::mf1(double)" << endl; }
-	void mf3() { cout << "Dervied::mf3()" << endl; }
+	virtual void mf1() { cout << "Derived::mf1()" << endl; }
+	virtual void mf1(double x) { cout << "Derived::mf1(double)" << endl; }
+	void mf3() { cout << "Derived::mf3()" << endl; }
 };
 
 class PrivDerived: private Base
@@ -46,7 +46,7 @@ public:
 int main()
 {
 	Derived d;
-	d.mf1();	// "Dervied::mf1()"
+	d.mf1();	// "Derived::mf1()"
 	// d.mf1(2.33);		// error: the Derived::mf1() hides the Base::mf1(double) so compiler search by name, not signature
 	d.mf2(1.9);	// derived don't have function named mf2, so it inherited from base
 	d.mf2();		// derived don't have function named mf2, so it inherited from base
@@ -56,7 +56,7 @@ int main()
 	// but if we want to use the base function, we can just add using:, so all the function with the same name will be accessible in derived function
 	NewDerived nd;
 	cout << "NewDerived start" << endl;
-	nd.mf1();		// although Base::mf1() is accessible, but the Dervied::mf1() if first be found: "Dervied::mf1()"
+	nd.mf1();		// although Base::mf1() is accessible, but the Derived::mf1() if first be found: "Derived::mf1()"
 	nd.mf1(2.23);	// mf1 found in Base: "Base::mf1(double x)"
 	nd.mf2();		// mf2 found in Base, and based on parameter: "Base::mf2()"
 	nd.mf2(2.23); // mf2 found in Base, and based on parameter: "Base::mf2(double)"
@@ -70,4 +70,8 @@ int main()
 	pd.mf1();
 	// pd.mf2(); can't directly call the inherited function
 	pd.mf2(1.1);	// but a override public on can
+
+	// summary:
+	// function name in derived class will hide the same name functions(all function with the same name, no matter parameters),
+	// but if using Base::name in derived class, the name can be seen in derived class, so won't be hide;
 }
