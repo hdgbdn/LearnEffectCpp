@@ -58,10 +58,13 @@ int main()
 	// composition is a class contains other class's object as member, like Person, has a Address and a Date;
 
 	// has-a is used in application domain, for non-abstract classes like people, car, image, video
-	// is-a is used in abstract domain, like buffers, mutexes, search trees.
+	// is-implemented-in-terms-of is used in abstract domain, like buffers, mutexes, search trees.
 	//
-	// for example, we want a set data structure in our space sensitive program, the stl version is time sensitive, so we have to implement our own;
+	// for example, we want a set data structure in our space sensitive program, the stl version is time sensitive,
+	// because it use BST, so every element has three extra pointers cost
+	// so we have to implement our own;
 	// and we choice the link-list implementation
 	// should we inherit std::list? no, public inheritance means "is-a", but set is not a list, such as set's elements are unique, but list can contain duplicate elements
 	// so we should use list as a member, "has-a" list
+	//
 }
